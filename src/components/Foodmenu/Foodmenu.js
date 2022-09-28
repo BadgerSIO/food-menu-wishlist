@@ -10,7 +10,7 @@ const Foodmenu = () => {
       .then((data) => setFood(data.meals));
   }, []);
   const addtoCart = (idmeal) => {
-    setItems([...items, idmeal]);
+    setItems([idmeal, ...items]);
   };
   return (
     <div className="container text-center">
@@ -26,7 +26,7 @@ const Foodmenu = () => {
           ></FoodItem>
         ))}
       </div>
-      <div className="w-72 h-auto bg-white/80 backdrop-blur-xl drop-shadow-sm fixed bottom-0 left-0 rounded-xl">
+      <div className="w-72 max-h-96 overflow-y-scroll bg-white/80 backdrop-blur-xl drop-shadow-sm fixed bottom-0 left-0 rounded-xl">
         <Cart items={items} foods={foods} className="rounded-xl"></Cart>
       </div>
     </div>
